@@ -58,6 +58,23 @@ fetch("book-data.json")
                 showMoreButton.classList.add("show-more-button");
                 showMoreButton.innerText = "show more";
 
+                const bookDescription = document.createElement("div");
+                bookDescription.innerText = bookData.description;
+                bookDescription.classList.add("book-description");
+                bookBlock.appendChild(bookDescription);
+                const closeButton = document.createElement("button");
+                closeButton.classList.add("close-description-button");
+                closeButton.innerText = "close";
+                bookDescription.appendChild(closeButton);
+
+                showMoreButton.addEventListener("click", () => {
+                    bookDescription.style.display = "flex";
+                });
+
+                closeButton.addEventListener("click", () => {
+                    bookDescription.style.display = "none";
+                })
+
                 middleColumn.appendChild(bookAuthor);
                 middleColumn.appendChild(bookTitle);
                 middleColumn.appendChild(showMoreButton);

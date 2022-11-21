@@ -18,6 +18,7 @@ h1, h2, h3 {
     justify-content: center;
     background-color: floralwhite;
     flex-direction: column;
+    align-items: center;
 }
 
 .header {
@@ -40,10 +41,12 @@ h1, h2, h3 {
 
 
 .book-block {
+    width: 80%;
+    position: relative;
     padding: 20px;
     margin-bottom: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: #ffffffc9;
 }
 
@@ -111,4 +114,34 @@ h1, h2, h3 {
 
 .add-to-bag-button:hover {
     background-color: #8382bc;
+}
+
+.book-description {
+    display: none;
+    flex-direction: column;
+    width: 62%;
+    /* height: 143px; */
+    position: absolute;
+    /* top: -23px; */
+    left: 242px;
+    /* background-color: #ffe4c2; */
+    background-color: #efeff9;
+    padding: 30px;
+    line-height: 1.4;
+    border-radius: 10px;
+    align-items: center;
+    font-weight: 300;
+    color: #51535a;
+}
+
+.close-description-button {
+    background-color: white;
+    border: 1px solid orange;
+    border-radius: 10px;
+    width: 150px;
+    height: 27px;
+    color: darkslateblue;
+    cursor: pointer;
+    font-weight: 300;
+    margin-top: 20px;
 }
