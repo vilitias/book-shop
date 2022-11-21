@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    height: 100%;
+    width: 80%;
+    justify-content: center;
+    background-color: floralwhite;
+    flex-direction: column;
+}
+
+.header {
+    height: 260px;
+    width: 100%;
+    background: url(./images/header-image.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #ff8b5d;
+    background-position-x: right;
+    margin-bottom: 50px;
+}
+
+.book-cover {
+    width: 300px;
+}
