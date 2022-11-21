@@ -16,20 +16,68 @@ fetch("book-data.json")
             const body = document.querySelector("body");
 
             const mainContainer = document.createElement("div");
-            mainContainer.classList.add("main-container")
+            mainContainer.classList.add("main-container");
             fragment.appendChild(mainContainer);
 
             const header = document.createElement("div");
             header.classList.add("header");
+            const title = document.createElement("h1");
+            title.classList.add("header-title");
+            title.innerText = "PROGRAMMING BOOKS SHOP";
+            header.append(title);
             mainContainer.appendChild(header);
 
 
             bookList.forEach(bookData => {
                 const bookBlock = document.createElement("div");
+                bookBlock.classList.add("book-block");
+
+                const leftColumn = document.createElement("div");
+                leftColumn.classList.add("book-picture");
+
+                const middleColumn = document.createElement("div");
+                middleColumn.classList.add("title-and-author");
+
+                const rightColumn = document.createElement("div");
+                rightColumn.classList.add("price-and-button-block");
+
+
                 const bookCover = document.createElement("img");
                 bookCover.src = bookData.imageLink;
                 bookCover.classList.add("book-cover");
-                bookBlock.appendChild(bookCover)
+                leftColumn.appendChild(bookCover);
+
+                const bookAuthor = document.createElement("h3");
+                bookAuthor.classList.add("book-author");
+                bookAuthor.innerText = bookData.author;
+
+                const bookTitle = document.createElement("h2");
+                bookTitle.classList.add("book-title");
+                bookTitle.innerText = bookData.title;
+                const showMoreButton = document.createElement("button");
+                showMoreButton.classList.add("show-more-button");
+                showMoreButton.innerText = "show more";
+
+                middleColumn.appendChild(bookAuthor);
+                middleColumn.appendChild(bookTitle);
+                middleColumn.appendChild(showMoreButton);
+
+
+                const price = document.createElement("div");
+                price.classList.add("price");
+                price.innerText = bookData.price;
+
+
+                const buyButton = document.createElement("button");
+                buyButton.classList.add("add-to-bag-button");
+                buyButton.innerText = "add to bag";
+
+                rightColumn.appendChild(price);
+                rightColumn.appendChild(buyButton);
+
+                bookBlock.append(leftColumn);
+                bookBlock.append(middleColumn);
+                bookBlock.append(rightColumn);
 
                 mainContainer.appendChild(bookBlock);
             })
