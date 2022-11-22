@@ -27,6 +27,10 @@ fetch("book-data.json")
             header.append(title);
             mainContainer.appendChild(header);
 
+            const shopCart = document.createElement("div");
+            shopCart.classList.add("shopping-cart");
+            body.appendChild(shopCart);
+
 
             bookList.forEach(bookData => {
                 const bookBlock = document.createElement("div");
@@ -82,12 +86,49 @@ fetch("book-data.json")
 
                 const price = document.createElement("div");
                 price.classList.add("price");
-                price.innerText = bookData.price;
+                price.innerText = bookData.price + "$";
 
 
                 const buyButton = document.createElement("button");
                 buyButton.classList.add("add-to-bag-button");
                 buyButton.innerText = "add to bag";
+
+                buyButton.addEventListener("click", () => {
+
+                    if (shopCart.style.display !== "flex") {
+                        shopCart.style.display = "flex";
+                    }
+
+                    const bookInCart = document.createElement("div");
+                    bookInCart.classList.add("book-in-cart");
+                    const titleAndAuthor = document.createElement("div");
+                    titleAndAuthor.classList.add("cart-title-and-author");
+
+                    const cartTitle = document.createElement("h4");
+                    cartTitle.classList.add("title-in-cart");
+                    cartTitle.innerText = bookData.title;
+                    
+                    const cartAuthor = document.createElement("h5");
+                    cartAuthor.classList.add("author-in-cart");
+                    cartAuthor.innerText = bookData.author;
+
+                    titleAndAuthor.appendChild(cartTitle);
+                    titleAndAuthor.appendChild(cartAuthor);
+
+                    const cartPrice = document.createElement("div");
+                    cartPrice.classList.add("cart-price");
+                    cartPrice.innerText = bookData.price;
+
+                    const deleteFromCart = document.createElement("div");
+                    deleteFromCart.classList.add("delete-cross");
+
+
+                    bookInCart.appendChild(titleAndAuthor);
+                    bookInCart.appendChild(cartPrice);
+                    bookInCart.appendChild(deleteFromCart);
+
+                    shopCart.appendChild(bookInCart);
+                })
 
                 rightColumn.appendChild(price);
                 rightColumn.appendChild(buyButton);
@@ -95,6 +136,8 @@ fetch("book-data.json")
                 bookBlock.append(leftColumn);
                 bookBlock.append(middleColumn);
                 bookBlock.append(rightColumn);
+
+                
 
                 mainContainer.appendChild(bookBlock);
             })

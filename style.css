@@ -6,7 +6,7 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5 {
     padding: 0;
     margin: 0;
 }
@@ -144,4 +144,27 @@ h1, h2, h3 {
     cursor: pointer;
     font-weight: 300;
     margin-top: 20px;
+}
+
+.shopping-cart {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    width: 235px;
+    height: 285px;
+    overflow: hidden;
+    background-color: #e9e9ffd9;
+    top: 60px;
+    right: 10px;
+}
+
+.book-in-cart {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.cart-title-and-author {
+    display: flex;
+    flex-direction: column;
 }
