@@ -27,9 +27,31 @@ fetch("book-data.json")
             header.append(title);
             mainContainer.appendChild(header);
 
+            let totalSum = 0;
+
             const shopCart = document.createElement("div");
             shopCart.classList.add("shopping-cart");
-            body.appendChild(shopCart);
+            const shopCartInner = document.createElement("div");
+            shopCartInner.classList.add("cart-inner-wrapper");
+            shopCart.appendChild(shopCartInner);
+            const cartInnerUpper = document.createElement("div");
+            cartInnerUpper.classList.add("cart-title-and-list");
+            shopCartInner.appendChild(cartInnerUpper);
+
+            const shopCartTitle = document.createElement("h3");
+            shopCartTitle.classList.add("shop-cart-title");
+            shopCartTitle.innerText = "Shopping cart";
+            const buyingConfirmButton = document.createElement("button");
+            buyingConfirmButton.classList.add("cart-confirmation-button");
+            buyingConfirmButton.innerText = "Confirm";
+            cartInnerUpper.append(shopCartTitle);
+            
+            const totalSumBlock = document.createElement("div");
+            totalSumBlock.classList.add("total-sum");
+            totalSumBlock.innerText = totalSum;
+            fragment.appendChild(totalSumBlock);
+
+            fragment.appendChild(shopCart);
 
 
             bookList.forEach(bookData => {
@@ -117,18 +139,29 @@ fetch("book-data.json")
 
                     const cartPrice = document.createElement("div");
                     cartPrice.classList.add("cart-price");
-                    cartPrice.innerText = bookData.price;
+                    cartPrice.innerText = bookData.price + "$";
 
-                    const deleteFromCart = document.createElement("div");
+                    const deleteFromCart = document.createElement("img");
                     deleteFromCart.classList.add("delete-cross");
+                    deleteFromCart.src = "./images/x.png";
+                    deleteFromCart.addEventListener("click", (e) => {
+                        e.target.parentElement.remove();
+                        totalSum -= bookData.price;
+                        totalSumBlock.innerText = totalSum + "$";
+
+                    })
+                    
 
 
                     bookInCart.appendChild(titleAndAuthor);
                     bookInCart.appendChild(cartPrice);
                     bookInCart.appendChild(deleteFromCart);
 
-                    shopCart.appendChild(bookInCart);
+                    cartInnerUpper.appendChild(bookInCart);
+                    totalSum += bookData.price;
+                    totalSumBlock.innerText = totalSum + "$";
                 })
+                shopCartInner.append(buyingConfirmButton);
 
                 rightColumn.appendChild(price);
                 rightColumn.appendChild(buyButton);
