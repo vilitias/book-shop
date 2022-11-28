@@ -4,9 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./delivery.css">
     <title>Delivery form</title>
 </head>
 <body>
-    
+    <form class="form">
+        <!-- mandatory, the length not less than 4 symbols, strings only, without spaces -->
+        
+        <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+        </div>
+
+        <!-- mandatory, the length not less than 5 symbols, strings only, without spaces -->
+        <div class="form-row">
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" required>
+        </div>
+
+        <!-- mandatory; not earlier than next day -->
+        <div class="form-row">
+            <label for="date">Delivery date</label>    
+            <input type="date" id="delivery-date" required>
+        </div>
+
+        <!-- mandatory, the length not less than 5 symbols, numbers are allowed -->
+        <div class="form-row">
+            <label for="street">Street</label>
+            <input type="text" id="street" required> 
+        </div>
+
+        <!-- mandatory, numbers only, positive numbers only -->
+        <div class="form-row">
+            <label for="house-number">House number</label>
+            <input type="number" id="house-number" required>
+        </div>
+
+        <!-- mandatory, numbers only, positive numbers only, the dash symbol is allowed -->
+        <div class="form-row">
+            <label for="flat-number">Flat number</label>
+            <input type="number" id="flat-number" required>
+        </div>
+
+        <div class="form-row">
+            Payment type
+            <div class="payment-types">
+                <div>
+                    <input type="radio" name="payment-type" id="cash">
+                    <label for="cash">Cash</label>
+                </div>
+                
+                <div>
+                    <input type="radio" name="payment-type" id="card">
+                    <label for="card">Card</label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="submit-button">Confirm</button>
+    </form>
+
+    <script src="/delivery.js"></script>
 </body>
 </html>

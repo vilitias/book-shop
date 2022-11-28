@@ -44,6 +44,9 @@ fetch("book-data.json")
             const buyingConfirmButton = document.createElement("button");
             buyingConfirmButton.classList.add("cart-confirmation-button");
             buyingConfirmButton.innerText = "Confirm";
+            buyingConfirmButton.addEventListener("click", () => {
+                window.location.href = "./delivery.html"
+            })
             cartInnerUpper.append(shopCartTitle);
             
             const totalSumBlock = document.createElement("div");
@@ -176,8 +179,7 @@ fetch("book-data.json")
             })
 
 
-            const form = document.querySelector("form");
-            body.insertBefore(fragment, form);
+            body.appendChild(fragment);
         })
 
 }
