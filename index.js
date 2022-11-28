@@ -45,7 +45,7 @@ fetch("book-data.json")
             buyingConfirmButton.classList.add("cart-confirmation-button");
             buyingConfirmButton.innerText = "Confirm";
             buyingConfirmButton.addEventListener("click", () => {
-                window.location.href = `${window.location.hostname}/book-shop/delivery.html`
+                window.location.href = `${window.location.protocol}//${window.location.hostname}/book-shop/delivery.html`
             })
             cartInnerUpper.append(shopCartTitle);
             
